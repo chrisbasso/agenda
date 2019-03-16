@@ -20,8 +20,10 @@ public class Vista
 	private JButton btnAgregar;
 	private JButton btnBorrar;
 	private JButton btnReporte;
+	private JButton btnEditar;
 	private DefaultTableModel modelPersonas;
-	private  String[] nombreColumnas = {"Nombre y apellido","Telefono"};
+	private  String[] nombreColumnas = {"Nombre y apellido","Teléfono",
+			"Calle","Altura","Piso","Depto","Localidad","Tipo Contacto"};
 
 	public Vista() 
 	{
@@ -29,48 +31,50 @@ public class Vista
 		initialize();
 	}
 
-
 	private void initialize() 
 	{
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setTitle("Agenda");
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 860, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 434, 262);
+		panel.setBounds(0, 0, 844, 262);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
+
 		JScrollPane spPersonas = new JScrollPane();
-		spPersonas.setBounds(10, 11, 414, 182);
+		spPersonas.setBounds(10, 11, 824, 182);
 		panel.add(spPersonas);
-		
+
 		modelPersonas = new DefaultTableModel(null,nombreColumnas);
 		tablaPersonas = new JTable(modelPersonas);
-		
+
 		tablaPersonas.getColumnModel().getColumn(0).setPreferredWidth(103);
 		tablaPersonas.getColumnModel().getColumn(0).setResizable(false);
 		tablaPersonas.getColumnModel().getColumn(1).setPreferredWidth(100);
 		tablaPersonas.getColumnModel().getColumn(1).setResizable(false);
-		
+
 		spPersonas.setViewportView(tablaPersonas);
-		
+
 		btnAgregar = new JButton("Agregar");
 		btnAgregar.setBounds(10, 228, 89, 23);
 		panel.add(btnAgregar);
-		
-		JButton btnEditar = new JButton("Editar");
+
+		btnEditar = new JButton("Editar");
 		btnEditar.setBounds(109, 228, 89, 23);
 		panel.add(btnEditar);
-		
+
 		btnBorrar = new JButton("Borrar");
 		btnBorrar.setBounds(208, 228, 89, 23);
 		panel.add(btnBorrar);
-		
+
 		btnReporte = new JButton("Reporte");
 		btnReporte.setBounds(307, 228, 89, 23);
 		panel.add(btnReporte);
+
 	}
 	
 	public void show()
