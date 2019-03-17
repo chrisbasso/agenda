@@ -12,6 +12,8 @@ public class PersonaDTO
 	private String localidad;
 	private String tipoContacto;
 
+
+
 	public PersonaDTO(int idPersona, String nombre, String telefono, String calle, String altura, String piso, String depto, String localidad, String tipoContacto) {
 		this.idPersona = idPersona;
 		this.nombre = nombre;
